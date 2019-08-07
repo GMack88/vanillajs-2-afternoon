@@ -1,4 +1,4 @@
-# VanillaJS Piano
+<!-- # VanillaJS Piano
 
 # Project Summary
 
@@ -10,13 +10,13 @@ The goal of this project is to build a functional piano that can be played using
 
 Begin by examining the exisiting code. You'll notice that our piano is a Scalable Vector Graphic (SVG); you can find more information on SVG's <a href="https://www.w3schools.com/graphics/svg_intro.asp">here</a>.
 
-### Instructions
+### Instructions -->
 
-- Open `./index.html`.
+<!-- - Open `./index.html`.
 - Locate the opening and closing `svg` tags.
   - Each polygon in our SVG represents a key, either black or white.
-  - Each key has either a `white` or `black` class and a `pianoKey` class for ease of working with the elements.
-- Locate the audio tags.
+  - Each key has either a `white` or `black` class and a `pianoKey` class for ease of working with the elements. -->
+<!-- - Locate the audio tags.
   - audio tags are hidden tags that allow us to play audio in our page.
   - Each audio tag has a src that tells it what audio to play.
   - We'll use javascript to tell it when to play.
@@ -29,8 +29,8 @@ Begin by examining the exisiting code. You'll notice that our piano is a Scalabl
 
 <summary><code> Example </code></summary>
 
-```js
-// Here we're accessing the audio element with a data-key property of 65
+```js -->
+<!-- // Here we're accessing the audio element with a data-key property of 65
 
 const element = document.querySelector('audio[data-key="65"]');
 ```
@@ -38,24 +38,24 @@ const element = document.querySelector('audio[data-key="65"]');
 
 ## Step 2
 
-### Summary
+### Summary -->
 
 In this step, we'll setup our application by declaring a new event listener and assigning the functionality. We want to listen for any `keypress` that occurs anywhere on our page. For this, we need to attach an event to the window.
 
 ### Instructions
 
-- Open `index.html`.
+<!-- - Open `index.html`.
 - Locate the opening and closing `script` tags.
-- In between the `script tags` declare a new event listener on our window object and provide it two arguments, the event to listen for and the handler to fire once that event has occurred.
-  - Add a single argument to the handler that will represent our `event`.
-  - The `event` argument is implicitly passed with information about the keypress event that occurred.
-  - One piece of information that will be passed along will be the `keyCode` of the key that was pressed.
-  - This `keyCode` will correlate with the `data-key` attribute assigned to our polygons and audio tags.
+- In between the `script tags` declare a new event listener on our window object and provide it two arguments, the event to listen for and the handler to fire once that event has occurred. -->
+  <!-- - Add a single argument to the handler that will represent our `event`. -->
+  <!-- - The `event` argument is implicitly passed with information about the keypress event that occurred.
+  - One piece of information that will be passed along will be the `keyCode` of the key that was pressed. -->
+  <!-- - This `keyCode` will correlate with the `data-key` attribute assigned to our polygons and audio tags.
 
 ### Solution
 
-<details>
-
+<details> -->
+<!-- 
 <summary> <code> ./index.html </code> </summary>
 
 ```js
@@ -66,11 +66,11 @@ window.addEventListener("keypress", function(keyPressEvent) {});
 
 ## Step 3
 
-### Summary
+### Summary -->
 
-In this step we'll get access to the visual key that was pressed (the unique polygon) and it's associated audio tag. As mentioned before, they share a unique `data-key` attribute.
+<!-- In this step we'll get access to the visual key that was pressed (the unique polygon) and it's associated audio tag. As mentioned before, they share a unique `data-key` attribute.
 
-### Instructions
+### Instructions -->
 
 - Open `index.html`.
 - Within the handler of our event listener, add 2 variables.
@@ -89,24 +89,24 @@ In this step we'll get access to the visual key that was pressed (the unique pol
 
 ```js
 window.addEventListener("keypress", function(keyPressEvent) {
-  const tone = document.querySelector(`audio[data-key="${keyPressEvent.keyCode}"]`);
-  if (!tone) return;
-  const pianoKey = document.querySelector(`.pianoKey[data-key="${keyPressEvent.keyCode}"]`);
-});
-```
+//   const tone = document.querySelector(`audio[data-key="${keyPressEvent.keyCode}"]`);
+//   if (!tone) return;
+//   const pianoKey = document.querySelector(`.pianoKey[data-key="${keyPressEvent.keyCode}"]`);
+// });
+// ```
 
-</details>
+// </details>
 
-## Step 4
+// ## Step 4
 
-### Summary
+// ### Summary
 
-In this step we'll get our piano to play a note when we press one of the valid keys seen at the top of the page.
+// In this step we'll get our piano to play a note when we press one of the valid keys seen at the top of the page.
 
-### Instructions
+// ### Instructions
 
-- Open `index.html`.
-- Within the handler of our event listener invoke the `play` method on our tone audio element.
+// - Open `index.html`.
+// - Within the handler of our event listener invoke the `play` method on our tone audio element.
 - You should now be able to click one of the valid keys and hear the tone played.
   - But OH NO! When we press the key consecutively, it doesn't restart the tone, but instead allows the current tone to finish playing.
   - To fix this, set the `currentTime` of the tone to 0 _before_ we play the tone.
